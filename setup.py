@@ -26,7 +26,7 @@ except ImportError:
 kwargs = {}
 
 
-version = "2.0.7"
+version = "1.4.1"
 
 class PyTest(distutils.core.Command):
     user_options = []
@@ -45,29 +45,25 @@ class PyTest(distutils.core.Command):
 
 
 distutils.core.setup(
-    name="kpages",
+    name="kpages_fork",
     version=version,
     packages=["kpages"],
-    package_data={'': ['*.*']},
+    package_data={'':['*.*']},
     author="comger@gmail.com",
     author_email="comger@gmail.com",
     url="http://github.com/comger/kpages",
     license="http://www.apache.org/licenses/LICENSE-2.0",
     description="kpages is api-centric web application framework for the Tornado and Mongodb",
-    scripts=['kpages/kpages_init.py', 'kpages/kpages_web.py', 'kpages/kpages_service.py', 'kpages/kpages_tool.py', 'kpages/kpages_rpc.py'],
+    scripts=['kpages/kpages_init.py','kpages/kpages_web.py','kpages/kpages_service.py','kpages/kpages_tool.py','kpages/kpages_rpc.py'],
     classifiers=[
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
     ],
-    keywords=["pymongo", "gridfs", "profile", "tornado", "redis", "session", "router", "MQ"],
-    install_requires=['tornado==6.0.3', 'threadpool==1.3.2', 'motor==2.0.0','asyncio==3.4.3'],
-    setup_requires=['tornado==6.0.3', 'threadpool==1.3.2', 'motor==2.0.0','asyncio==3.4.3'],
+    keywords=["pymongo", "gridfs", "profile","tornado", "redis", "session", "router","MQ"],
     cmdclass={'test': PyTest},
     **kwargs
 )

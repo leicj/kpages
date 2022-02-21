@@ -23,12 +23,11 @@ import datetime
 import json
 import traceback
 import pkgutil
-import time, sched
-import threading
-
 from sys import stderr, argv
 from multiprocessing import cpu_count, Process
-
+import time, sched
+from log import log
+import threading
 
 try:
     from os import wait, fork, getpid, getppid, killpg, waitpid
@@ -38,6 +37,7 @@ except:
     iswin = True
     print('some function only support unix and linux ')
 
+
 try:
     from redis import Redis, ConnectionError
 except:
@@ -45,9 +45,8 @@ except:
 
 from json import loads, dumps
 
-from kpages.log import log
-from kpages.context import LogicContext, get_context
-from kpages.utility import get_members
+from context import LogicContext, get_context
+from utility import get_members
 
 
 def staticclass(cls):
